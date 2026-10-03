@@ -1,0 +1,30 @@
+[package]
+name = "rust-idm"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+axum = "0.7"
+tower-http = { version = "0.5", features = ["cors"] }
+crossbeam-channel = "0.5"
+eframe = { version = "0.31", default-features = false, features = ["default_fonts", "glow", "x11", "wayland"] }
+egui_extras = { version = "0.31", features = ["image"] }
+image = { version = "0.25", default-features = false, features = ["png"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+rfd = "0.15"
+chrono = { version = "0.4", features = ["serde"] }
+reqwest = { version = "0.12", features = ["stream"] }
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "fs", "sync", "time"] }
+futures-util = "0.3"
+opener = "0.8.5"
+
+
+[profile.release]
+opt-level = 'z'     # Optimize for minimum binary size
+lto = true          # Link-time optimization (removes dead code)
+codegen-units = 1   # Maximum optimization across the whole crate
+panic = 'abort'     # Removes panic unwinding tables (saves RAM)
+strip = true        # Strip debug symbols
+
+

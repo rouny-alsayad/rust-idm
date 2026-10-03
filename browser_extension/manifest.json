@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Rust IDM Integration",
+  "version": "1.1",
+  "description": "Sends downloads to the Rust Internet Download Manager.",
+  "permissions": [
+    "downloads",
+    "contextMenus",
+    "cookies"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1:8765/*",
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "128": "icon.png"
+  }
+}
